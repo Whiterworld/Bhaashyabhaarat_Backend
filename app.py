@@ -195,7 +195,10 @@ def login():
 #     app.run(debug=True)
 
 if __name__ == "__main__":
+    from dotenv import load_dotenv
+    load_dotenv()
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 # Without resources={r"/*": {"origins": [...]}}, your API is open to requests from any domain, which can be a security risk in production.
