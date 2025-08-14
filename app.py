@@ -195,9 +195,8 @@ def login():
 #     app.run(debug=True)
 
 if __name__ == "__main__":
-    from dotenv import load_dotenv
     load_dotenv()
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run()
 
 
 
