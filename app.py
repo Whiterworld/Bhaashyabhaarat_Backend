@@ -18,7 +18,7 @@ CORS(app, resources={r"/*": {"origins": ["https://bhaashyabhaarat.netlify.app"]}
 
 
 # MongoDB connection
-MONGODB_URI = os.getenv("MONGODB_URI")
+MONGODB_URI = 'mongodb+srv://admin:admin123@cluster0.uhfubqa.mongodb.net/whiter'
 client = MongoClient(MONGODB_URI)
 db = client.Whiter
 users_collection = db.users
