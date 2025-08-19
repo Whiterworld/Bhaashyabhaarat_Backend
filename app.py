@@ -11,6 +11,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # Load environment variables
 load_dotenv()
+uri = os.getenv('MONGODB_URI')
 
 app = Flask(__name__)
 #CORS(app)  # In production, configure CORS properly
@@ -18,8 +19,7 @@ CORS(app, resources={r"/*": {"origins": ["https://bhaashyabhaarat.netlify.app"]}
 
 
 # MongoDB connection
-MONGODB_URI = 'mongodb+srv://admin:admin123@cluster0.uhfubqa.mongodb.net/whiter'
-client = MongoClient(MONGODB_URI)
+client = MongoClient(uri)
 db = client.Whiter
 users_collection = db.users
 
@@ -196,6 +196,7 @@ def login():
 
 if __name__ == "__main__":
     load_dotenv()
+    uri = os.getenv('MONGODB_URI')
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 
