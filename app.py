@@ -8,7 +8,7 @@ import pickle
 import pandas as pd
 import jiwer
 from sklearn.metrics.pairwise import cosine_similarity
-
+import certifi
 # Load environment variables
 load_dotenv()
 uri = os.getenv('MONGODB_URI')
@@ -19,7 +19,7 @@ CORS(app, resources={r"/*": {"origins": ["https://bhaashyabhaarat.netlify.app"]}
 
 
 # MongoDB connection
-client = MongoClient(uri)
+client = MongoClient(uri, tlsCAFile=certifi.where())
 db = client.Whiter
 users_collection = db.users
 
